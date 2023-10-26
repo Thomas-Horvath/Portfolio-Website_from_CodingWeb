@@ -1,5 +1,21 @@
 @import url(./variables.css);
 
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family-poppins);
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--body-bg);
+    transition: background var(--default-duration) ease;
+}
+
 /* ============= START HEADER ============= */
 
 /* navbar for large screens */
