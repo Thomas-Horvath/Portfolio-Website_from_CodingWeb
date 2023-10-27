@@ -499,7 +499,7 @@ body {
 
 .home__title,
 .home__subtitle {
-   color: var(--text-dark);
+    color: var(--text-dark);
 }
 
 .home__subtitle span {
@@ -558,11 +558,13 @@ svg#scroll-down circle {
         display: none;
     }
 }
+
 @media screen and (max-width:418px) {
-  
+
     .home__image {
         justify-content: center;
     }
+
     .home__image img {
         max-width: 270px;
         width: 100%;
@@ -572,8 +574,68 @@ svg#scroll-down circle {
 
 /* ============= END HOME SECTION ============= */
 
-/* ============= START ABOUT SECTION ============= */
+.section__title {
+    position: relative;
+    color: var(--text-dark);
+    width: fit-content;
+    margin-inline: auto;
+}
+.section__title::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+background-color: var(--accent-color);
+}
 
+/* ============= START ABOUT SECTION ============= */
+.about {
+    position:relative ;
+    padding-block: var(--header-height);
+    min-height: var(--full-view-height);
+}
+.about__title {
+    color: var(--text-dark);
+}
+.about__title span {
+    color: var(--accent-color);
+}
+.about__container {
+padding-top: calc(var(--padding-3) * 2 );
+}
+.about__left-side {
+    width: 100%;
+    max-width: 500px;
+}
+.about__image {
+    border-radius: var(--border-10);
+    overflow: hidden;
+}
+.about__right-side {
+    width: 100%;
+    max-width: 510px;
+}
+.about__text {
+    color: var(--text-alt-1);
+}
+.about__info h4 {
+    color: var(--accent-color);
+}
+.about__info p {
+    width: 90px;
+    color: var(--text-alt-1);
+}
+
+@media screen and (max-width: 992px) {
+    .about__content {
+        flex-direction: column;
+    }
+    .about__info {
+        flex-wrap: wrap;
+    }
+}
 /* ============= END ABOUT SECTION ============= */
 
 /* ============= START SKILLS SECTION ============= */
