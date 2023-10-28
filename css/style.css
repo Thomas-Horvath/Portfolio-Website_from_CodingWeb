@@ -580,6 +580,7 @@ svg#scroll-down circle {
     width: fit-content;
     margin-inline: auto;
 }
+
 .section__title::after {
     content: "";
     position: absolute;
@@ -587,42 +588,51 @@ svg#scroll-down circle {
     height: 5px;
     left: 0;
     bottom: 0;
-background-color: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 /* ============= START ABOUT SECTION ============= */
 .about {
-    position:relative ;
+    position: relative;
     padding-block: var(--header-height);
     min-height: var(--full-view-height);
 }
+
 .about__title {
     color: var(--text-dark);
 }
+
 .about__title span {
     color: var(--accent-color);
 }
+
 .about__container {
-padding-top: calc(var(--padding-3) * 2 );
+    padding-top: calc(var(--padding-3) * 2);
 }
+
 .about__left-side {
     width: 100%;
     max-width: 500px;
 }
+
 .about__image {
     border-radius: var(--border-10);
     overflow: hidden;
 }
+
 .about__right-side {
     width: 100%;
     max-width: 510px;
 }
+
 .about__text {
     color: var(--text-alt-1);
 }
+
 .about__info h4 {
     color: var(--accent-color);
 }
+
 .about__info p {
     width: 90px;
     color: var(--text-alt-1);
@@ -632,17 +642,194 @@ padding-top: calc(var(--padding-3) * 2 );
     .about__content {
         flex-direction: column;
     }
+
     .about__info {
         flex-wrap: wrap;
     }
 }
+
 /* ============= END ABOUT SECTION ============= */
 
 /* ============= START SKILLS SECTION ============= */
+.skills {
+    position: relative;
+    min-height: var(--full-view-height);
+    padding-block: var(--header-height);
+}
+
+.skills__container {
+    padding-top: calc(var(--padding-3) * 2);
+}
+
+.skills__content {
+    row-gap: 5rem;
+}
+
+.skills__subtitle {
+    position: relative;
+    width: fit-content;
+    color: var(--text-dark);
+    margin-bottom: var(--margin-3);
+}
+
+.skills__subtitle::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 70px;
+    background-color: var(--accent-color);
+}
+
 
 /* Skills & Tools */
+.skill {
+    flex-basis: 350px;
+}
+
+.skill i {
+    color: var(--accent-color);
+}
+
+.skill__header {
+    margin-bottom: var(--margin-1);
+    cursor: pointer;
+}
+
+.skill__title {
+    color: var(--text-dark);
+}
+
+.skill__text {
+    color: var(--text-alt-1);
+}
+
+.skill__body {
+    padding-left: var(--padding-2);
+    overflow: hidden;
+    transition: height var(--default-duration) ease;
+}
+
+.skill__tool {
+    margin-top: var(--margin-1);
+}
+
+.skill__tool-name {
+    color: var(--text-dark);
+}
+
+.skill__tool-value {
+    color: var(--text-alt-1);
+}
+
+.skill__tool-progressbar {
+    width: 100%;
+    height: 7px;
+    background-color: var(--gray-70);
+    border-radius: var(--border-rounded);
+}
+
+.skill__tool-progressbarvalue {
+    display: block;
+    height: 100%;
+    background-color: var(--accent-color);
+    border-radius: var(--border-rounded);
+}
+
+.accordion.collapsed .accordion__content {
+    height: 0;
+}
+.accordion.extended .arrow {
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 752px) {
+    .skill {
+        flex-basis: 100%;
+    }
+
+}
 
 /* Education & Experience */
+.timeline {
+    width: 50%;
+}
+
+.timeline__title {
+    color: var(--text-dark);
+    margin-bottom: var(--margin-1);
+}
+
+.timeline__items {
+    border-left: 2px solid var(--gray-80);
+    width: 100%;
+}
+
+.timeline__item {
+    position: relative;
+    padding-left: calc(var(--padding-1) * 1.5);
+}
+
+.timeline__marker {
+    position: absolute;
+    left: 0;
+    width: calc(var(--padding-1) * 1.5);
+    height: 100%;
+}
+
+.timeline__marker::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    transform: translate(-50%, -50%);
+    border: 3px solid var(--accent-color);
+    border-radius: var(--border-rounded);
+    background-color: var(--white-100);
+    z-index: 5;
+}
+
+.timeline__marker::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-color);
+    transform: translateY(-50%);
+    z-index: 4;
+}
+
+.timeline__content {
+    row-gap: 0.5rem;
+    padding: calc(var(--padding-1) *1.5);
+    width: 100%;
+    border-radius: var(--border-10);
+    box-shadow: var(--shadow-black-20);
+}
+
+.timeline__date,
+.timeline__desc,
+.timeline__major span {
+    color: var(--text-alt-1);
+}
+
+.timeline__major {
+    color: var(--accent-color);
+}
+
+@media screen and (max-width: 992px) {
+    .skills__wrapper {
+        flex-wrap: wrap;
+
+    }
+    .timeline {
+        width: 100%;
+    }
+}
+
 
 /* ============= END SKILLS SECTION ============= */
 

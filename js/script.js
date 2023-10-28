@@ -18,20 +18,129 @@ const header = document.querySelector(".header"),
 // Skills & Tools
 let skills = [
     {
-        skillTitle: "Title",
-        skillText: "Text",
+        skillTitle: "Frontend fejlesztő",
+        skillText: "2 év tapasztalat",
         icon: "ri-code-s-slash-fill",
-        tools: [{ toolName: "Tool name", toolValue: 90 }],
+        tools: [
+            { toolName: "HTML", toolValue: 95 },
+            { toolName: "CSS", toolValue: 90 },
+            { toolName: "Javascript", toolValue: 80 },
+            { toolName: "Typescript", toolValue: 50 },
+            { toolName: "React", toolValue: 40 },
+        ],
+    },
+    {
+        skillTitle: "Backend fejlesztő",
+        skillText: "2 év tapasztalat",
+        icon: "ri-code-s-slash-fill",
+        tools: [
+            { toolName: "PHP", toolValue: 95 },
+            { toolName: "NodeJs", toolValue: 90 },
+        ],
+    },
+    {
+        skillTitle: "Egyéb készségek",
+        skillText: "2 év tapasztalat",
+        icon: "ri-code-s-slash-fill",
+        tools: [
+            { toolName: "GIT/Github", toolValue: 95 },
+            { toolName: "Figma", toolValue: 90 },
+        ],
+    },
+    {
+        skillTitle: "Adatbázis kezelés",
+        skillText: "2 év tapasztalat",
+        icon: "ri-code-s-slash-fill",
+        tools: [
+            { toolName: "MSSQL", toolValue: 95 },
+            { toolName: "MySql", toolValue: 90 },
+        ],
     },
 ];
 
 function skillComponent({ skillTitle, skillText, icon, tools }) {
-    return ``;
+    return `
+    <div class="skill accordion collapsed">
+        <div class="skill__header accordion__header  d-flex align-center justify-between">
+            <div class="group d-flex align-center c-gap-1">
+                <i class="${icon} subtitle-lg"></i>
+                <div class="group">
+                    <p class="skill__title body-md">${skillTitle}</p>
+                    <p class="skill__text body-es">${skillText}</p>
+                </div>
+            </div>
+            <i class="ri-arrow-down-s-line subtitle-es arrow"></i>
+        </div>
+        <div class="skill__body accordion__content">
+        ${tools.map(tool => {
+        const { toolName, toolValue } = tool;
+        return `
+            <div class="skill__tool">
+                <div class="group d-flex justify-between">
+                    <p class="skill__tool-name body-es">${toolName}</p>
+                    <p class="skill__tol-value body-es ">${toolValue}%</p>
+                </div>
+                <div class="skill__tool-progressbar">
+                    <span class="skill__tool-progressbarvalue" style="width: ${toolValue}%;"></span>
+                </div>
+            </div>`;
+    })
+            .join("")}
+        </div>
+    </div>`;
 }
 
-function renderSkills() {}
+function renderSkills() {
+    skills.map((skill) => {
+        skillsContainer.innerHTML += skillComponent(skill)
+    });
+    const accordions = document.querySelectorAll(".accordion");
+
+    const toggleAccordion = (accordion) => {
+        const accordionContent = accordion.querySelector(".accordion__content");
+        let accordionContentHeight = accordionContent.scrollHeight;
+        if (accordion.classList.contains("extended")) {
+            accordion.classList.replace("extended", "collapsed");
+            accordionContent.style.height = "0px";
+        } else if (accordion.classList.contains("collapsed")) {
+            accordion.classList.replace("collapsed", "extended");
+            accordionContent.style.height = `${accordionContentHeight}px`;
+        }
+    };
+
+    accordions.forEach((accordion) => {
+        const accordionBtn = accordion.querySelector(".accordion__header");
+        accordionBtn.addEventListener("click", () => {
+            const extendedAccordion = document.querySelector(".accordion.extended");
+            toggleAccordion(accordion);
+            if (extendedAccordion && !extendedAccordion.classList.contains("collapsed")) {
+                toggleAccordion(extendedAccordion);
+            }
+        });
+    });
+}
 // Education & Experience
 let educations = [
+    {
+        type: "education",
+        title: "Title",
+        position: "Position",
+        date: {
+            startDate: "Oct 10, 2014",
+            endDate: "2018",
+        },
+        desc: "Lorem Ipsum Commodo Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad Minim Veniam",
+    },
+    {
+        type: "education",
+        title: "Title",
+        position: "Position",
+        date: {
+            startDate: "Oct 10, 2014",
+            endDate: "2018",
+        },
+        desc: "Lorem Ipsum Commodo Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad Minim Veniam",
+    },
     {
         type: "education",
         title: "Title",
@@ -52,13 +161,44 @@ let educations = [
         },
         desc: "Lorem Ipsum Commodo Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad Minim Veniam",
     },
+    {
+        type: "experience",
+        title: "Title",
+        position: "Position",
+        date: {
+            startDate: "Mar 10, 2018",
+            endDate: "2021",
+        },
+        desc: "Lorem Ipsum Commodo Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad Minim Veniam",
+    },
 ];
 
 function timelineComponent({ title, position, date, desc }) {
-    return ``;
+    return `
+    <div class="timeline__item">
+        <div class="timeline__marker"></div>
+        <div class="timeline__content d-flex f-column">
+            <p class="timeline__date body-es">${date.startDate} - ${date.endDate}</p>
+            <p class="timeline__major body-md">${title}
+                <span class="body-es">- ${position}</span>
+            </p>
+            <p class="timeline__desc body-es">${desc}</p>
+        </div>
+    </div>
+    `;
 }
 
-function renderEducations() {}
+function renderEducations() {
+    educations.map(edu => {
+        if (edu.type === "education") {
+            eduContainer.innerHTML += timelineComponent(edu);
+        }
+        else if (edu.type === "experience") {
+            expContainer.innerHTML += timelineComponent(edu);
+        }
+
+    })
+}
 
 /* ============== Services Section ============== */
 
@@ -76,6 +216,10 @@ function renderEducations() {}
 
 /* ============== scrollRevealJS ============== */
 
-window.addEventListener("scroll", () => {});
+window.addEventListener("scroll", () => { });
 
-window.addEventListener("load", () => {});
+window.addEventListener("load", () => {
+    renderSkills();
+    renderEducations();
+
+});
