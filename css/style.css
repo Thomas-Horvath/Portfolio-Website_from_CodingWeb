@@ -878,7 +878,7 @@ svg#scroll-down circle {
     position: absolute;
     padding: var(--padding-1);
     bottom: 0;
-    /* opacity: 0; */
+    opacity: 0;
     transform: translateY(20px);
     transition: all var(--default-duration) ease;
 }
@@ -888,11 +888,36 @@ svg#scroll-down circle {
     color: var(--white-100);
 }
 
-.project__Subtitle {
+.project__subtitle {
     text-transform: capitalize;
     color: var(--gray-80);
 }
 
+.project__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: var(--accent-color);
+    border-radius: var(--border-circle);
+    transform: translate(-50%, -50%);
+    font-size: calc(var(--font-size-1) *1.2);
+    color: var(--white-100);
+    opacity: 0;
+    z-index: 10;
+    transition:  opacity var(--default-duration ) ease;
+}
+.project:hover::before ,.project:hover .project__link {
+    opacity: 1;
+}
+.project:hover .project__details {
+    opacity: 1;
+    transform: translateY(0px);
+}
 
 
 
