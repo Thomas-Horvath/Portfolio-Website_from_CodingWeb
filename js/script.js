@@ -283,6 +283,28 @@ services.forEach(service => {
 
 
 /* ============== Testimonials Section ============== */
+const testimonialsSwiper = new Swiper(".testimonials__slider", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    allowTouchMove: true,
+    navigation: {
+        nextEl:".testimonials__btn-right",
+        prevEl:".testimonials__btn-left",
+    },
+    pagination: {
+        el: ".testimonials__slider-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        768: {
+            allowTouchMove: false,
+        },
+    }
+});
+
+
+
 
 /* ============== Contact Section ============== */
 
