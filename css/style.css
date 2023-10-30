@@ -520,8 +520,8 @@ body {
 
 .home__image img {
     width: 400px;
-    border-radius: 50%;
-    box-shadow: 2px 2px 20px 5px var(--accent-color);
+   /*  border-radius: 50%;
+    box-shadow: 2px 2px 20px 5px var(--accent-color); */
 
 }
 

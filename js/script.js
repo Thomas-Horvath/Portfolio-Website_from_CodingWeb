@@ -201,6 +201,86 @@ function renderEducations() {
 }
 
 /* ============== Services Section ============== */
+services.forEach(service => {
+    const moreBtn = service.querySelector(".service__more"),
+        bottomSheet = service.querySelector(".service__btmsheet"),
+        dragIcon = service.querySelector(".service__btmsheet-dragicon");
+
+    let isdragging = false, startY, startTranslateY;
+
+
+
+    function showBottomSheet() {
+        bottomSheet.style.transition = " transform 300ms ease";
+        updateTaranslateY(-bottomSheet.offsetHeight);
+    }
+
+    function hideBottomSheet() {
+        updateTaranslateY(0)
+    }
+
+    function updateTaranslateY(value) {
+        bottomSheet.style.transform = `translateY(${value}px)`
+    }
+
+    function dragStart(e) {
+        isdragging = true;
+        startY = e.pageY || e.touches?.[0].pageY;
+        startTranslateY = parseFloat(getComputedStyle(bottomSheet).transform.split(", ")[5]);
+    }
+
+    function dragging(e) {
+        if (!isdragging) return;
+        const deltaY = (e.pageY || e.touches?.[0].pageY) - startY;
+        const newTranslateY = Math.max(-bottomSheet.offsetHeight, startTranslateY + deltaY);
+
+        if(navigator .maxTouchPoints > 0) {
+            document.body.style.overflow ="hidden";
+        }
+
+        bottomSheet.style.transition = "";
+        updateTaranslateY(newTranslateY);
+     }
+
+    function dragStop() {
+        if (!isdragging) return;
+        isdragging = false;
+        let endTranslateY = -parseFloat(getComputedStyle(bottomSheet).transform.split(", ")[5]);
+        if(navigator .maxTouchPoints > 0) {
+            document.body.style.overflow ="visible";
+        }
+
+        bottomSheet.style.transition = " transform 300ms ease";
+        endTranslateY >= bottomSheet.offsetHeight * 0.75
+        ? updateTaranslateY(-bottomSheet.offsetHeight) 
+        : endTranslateY <= bottomSheet.offsetHeight * 0.25
+        ? hideBottomSheet()
+        : updateTaranslateY(-bottomSheet.offsetHeight / 2);
+    }
+
+    moreBtn.addEventListener("click", showBottomSheet);
+    dragIcon.addEventListener("mousedown", dragStart);
+    service.addEventListener("mousemove", dragging);
+    document.addEventListener("mouseup", dragStop);
+
+    dragIcon.addEventListener("touchstart", dragStart);
+    service.addEventListener("touchmove", dragging);
+    document.addEventListener("touchend", dragStop);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ============== Testimonials Section ============== */
 
