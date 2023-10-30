@@ -57,6 +57,7 @@
                 <div class="color-theme body-md d-flex align-center justify-center">
                     <i class="ri-moon-fill"></i>
                 </div>
+                <div class="language body-sm"><a href="#">English</a></div>
             </div>
             <div class="header__links-mobile justify-center align-center">
                 <ul class="d-flex align-center justify-center">
@@ -425,7 +426,7 @@
     <!-- ============= Testimonials Section ============= -->
     <section class="testimonials">
         <div class="section__title">
-            <h2 class="heading-2">Ajánlások</h2>
+            <h2 class="heading-2">Vélemények</h2>
         </div>
         <div class="testimonials__container container">
             <div class="testimonials__content">
@@ -511,7 +512,92 @@
 
 
     <!-- ============= Contact Section ============= -->
-    <section id="contact" class="contact"></section>
+    <section id="contact" class="contact">
+        <div class="section__title">
+            <h2 class="heading-2">Kapcsolat</h2>
+        </div>
+        <div class="contact__container container">
+            <div class="contact__content d-flex justify-between f-wrap gap-2">
+                <div class="contact__info-list d-flex f-column gap-2">
+                    <div class="contact__info-item">
+                        <a href="tel:+3630 123 4567" class="d-flex align-center c-gap-2">
+                            <i class="ri-phone-fill heading-3"></i>
+                            <div class="group">
+                                <p class="contact__title heading-4">Telefon</p>
+                                <p class="contact__subtitle body-es">+3630 123 4567</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="contact__info-item">
+                        <a href="tel:+3630 123 4567" class="d-flex align-center c-gap-2">
+                            <i class="ri-mail-fill heading-3"></i>
+                            <div class="group">
+                                <p class="contact__title heading-4">Email cím</p>
+                                <p class="contact__subtitle body-es">pelda@gmail.hu</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="contact__info-item">
+                        <a href="tel:+3630 123 4567" class="d-flex align-center c-gap-2">
+                            <i class="ri-map-pin-fill heading-3"></i>
+                            <div class="group">
+                                <p class="contact__title heading-4">Cím</p>
+                                <p class="contact__subtitle body-es">Pomáz - HU</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <form class="form" id="contact-form">
+                    <div class="group d-flex gap-2  f-column">
+                        <div class="group d-flex align-center gap-2 f-wrap">
+                            <div class="form__group">
+                                <label for="name" class="form__label body-es">név</label>
+                                <input type="text" name="user-name" id="name" class="input-primary form__input"
+                                    autocomplete="off" required>
+                            </div>
+                            <div class="form__group">
+                                <label for="email" class="form__label body-es">email</label>
+                                <input type="text" name="user-email" id="email" class="input-primary form__input"
+                                    autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="subject" class="form__label body-es">tárgy</label>
+                            <input type="text" name="subject" id="subject" class="input-primary form__input"
+                                autocomplete="off" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="message" class="form__label body-es">üzenet</label>
+                            <textarea type="text" name="message" id="message" class="input-primary form__input"
+                                autocomplete="off" required></textarea>
+                        </div>
+                        <div class="form__status-box">
+                            <p class="body-es"></p>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-primary d-flex align-center c-gap-1">Küldés
+                            <i class="ri-send-plane-fill"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- ============= Footer ============= -->
     <footer class="footer"></footer>

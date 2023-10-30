@@ -398,6 +398,14 @@ body {
     display: none;
 }
 
+.language {
+    margin: var(--margin-1);
+}
+
+.language:hover {
+    text-decoration: underline;
+}
+
 /* navbar for small screens */
 
 @media screen and (max-width: 992px) {
@@ -1173,12 +1181,85 @@ svg#scroll-down circle {
 
 /* ============= START CONTACT SECTION ============= */
 
-/* ============= END CONTACT SECTION ============= */
+.contact {
+    position: relative;
+    min-height: var(--full-view-height);
+    padding-block: var(--header-height);
+}
 
-/* ============= START FOOTER ============= */
+.contact__container {
+    padding-top: calc(var(--padding-3) * 2);
+}
 
-/* ============= END FOOTER ============= */
+.contact__info-item i {
+    color: var(--accent-color);
+}
 
-/* ============= SCROLL UP BUTTON ============= */
+.contact__title {
+    color: var(--text-dark);
+    text-transform: capitalize;
+}
 
-/* ============= DARK MODE ============= */
+.contact__subtitle {
+    color: var(--text-alt-1);
+}
+
+
+
+.form__group {
+    position: relative;
+}
+
+.form__label {
+    position: absolute;
+    top: calc(var(--control-height) / 2);
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--body-bg);
+    padding-inline: 5px;
+    text-transform: capitalize;
+    transition: all var(--default-duration) ease;
+}
+
+.form__label.focus {
+    top: 0;
+    font-size: calc(var(--font-size-1) / 1.3);
+}
+
+.form__input {
+    width: 100%;
+}
+
+textarea.form__input {
+    resize: vertical;
+    padding-block: 5px;
+    min-height: 150px;
+}
+
+.form__status-box {
+    color: var(--text-alt-1);
+}
+
+
+@media screen and (max-width: 992px) {
+    .contact__info-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .form,
+    .form__group {
+        width: 100%;
+    }
+}
+
+    /* ============= END CONTACT SECTION ============= */
+
+    /* ============= START FOOTER ============= */
+
+    /* ============= END FOOTER ============= */
+
+    /* ============= SCROLL UP BUTTON ============= */
+
+    /* ============= DARK MODE ============= */

@@ -234,28 +234,28 @@ services.forEach(service => {
         const deltaY = (e.pageY || e.touches?.[0].pageY) - startY;
         const newTranslateY = Math.max(-bottomSheet.offsetHeight, startTranslateY + deltaY);
 
-        if(navigator .maxTouchPoints > 0) {
-            document.body.style.overflow ="hidden";
+        if (navigator.maxTouchPoints > 0) {
+            document.body.style.overflow = "hidden";
         }
 
         bottomSheet.style.transition = "";
         updateTaranslateY(newTranslateY);
-     }
+    }
 
     function dragStop() {
         if (!isdragging) return;
         isdragging = false;
         let endTranslateY = -parseFloat(getComputedStyle(bottomSheet).transform.split(", ")[5]);
-        if(navigator .maxTouchPoints > 0) {
-            document.body.style.overflow ="visible";
+        if (navigator.maxTouchPoints > 0) {
+            document.body.style.overflow = "visible";
         }
 
         bottomSheet.style.transition = " transform 300ms ease";
         endTranslateY >= bottomSheet.offsetHeight * 0.75
-        ? updateTaranslateY(-bottomSheet.offsetHeight) 
-        : endTranslateY <= bottomSheet.offsetHeight * 0.25
-        ? hideBottomSheet()
-        : updateTaranslateY(-bottomSheet.offsetHeight / 2);
+            ? updateTaranslateY(-bottomSheet.offsetHeight)
+            : endTranslateY <= bottomSheet.offsetHeight * 0.25
+                ? hideBottomSheet()
+                : updateTaranslateY(-bottomSheet.offsetHeight / 2);
     }
 
     moreBtn.addEventListener("click", showBottomSheet);
@@ -289,8 +289,8 @@ const testimonialsSwiper = new Swiper(".testimonials__slider", {
     loop: true,
     allowTouchMove: true,
     navigation: {
-        nextEl:".testimonials__btn-right",
-        prevEl:".testimonials__btn-left",
+        nextEl: ".testimonials__btn-right",
+        prevEl: ".testimonials__btn-left",
     },
     pagination: {
         el: ".testimonials__slider-pagination",
@@ -307,6 +307,25 @@ const testimonialsSwiper = new Swiper(".testimonials__slider", {
 
 
 /* ============== Contact Section ============== */
+formInputs.forEach(input => {
+    input.addEventListener("focus", () => {
+        let targetLabel = document.querySelector(`.form__label[for=${input.id}]`);
+        targetLabel.classList.add("focus");
+    });
+    input.addEventListener("blur", () => {
+        let targetLabel = document.querySelector(`.form__label[for=${input.id}]`);
+        if(input.value.length === 0)
+        targetLabel.classList.remove("focus");
+    });
+});
+
+
+
+
+
+
+
+
 
 /* ============== Active Scroll ============== */
 
