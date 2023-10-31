@@ -399,11 +399,12 @@ body {
 }
 
 .language {
-    margin: var(--margin-1);
+ width: 30px;
+    margin: 0 var(--margin-1);
 }
 
 .language:hover {
-    text-decoration: underline;
+   transform: scale(1.2);
 }
 
 /* navbar for small screens */

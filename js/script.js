@@ -14,6 +14,25 @@ const header = document.querySelector(".header"),
 
 /* ============== Header ============== */
 
+function changeHeaderBg() {
+    const scrollY = window.scrollY;
+    header.style.transition ="all var(--default-duration) ease";
+    if (scrollY > 50) {
+        header.style.background = "var(--body-bg)";
+        header.style.height = "calc(var(--header-height) - 15px)";
+        header.style.boxShadow = "0 0 5px var(--black-100-alpha-20)";
+    }
+    else {
+        header.style.background = "transparent";
+        header.style.height = "var(--header-height)";
+        header.style.boxShadow = "";
+    }
+ } 
+
+
+
+
+
 /* ============== Skills Section ============== */
 // Skills & Tools
 let skills = [
@@ -359,7 +378,9 @@ function sendEmail(e) {
 contactForm.addEventListener("submit", sendEmail)
 /* ============== scrollRevealJS ============== */
 
-window.addEventListener("scroll", () => { });
+window.addEventListener("scroll", () => {
+    changeHeaderBg();
+ });
 
 window.addEventListener("load", () => {
     renderSkills();
