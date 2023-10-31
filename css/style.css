@@ -1254,12 +1254,37 @@ textarea.form__input {
     }
 }
 
-    /* ============= END CONTACT SECTION ============= */
+/* ============= END CONTACT SECTION ============= */
 
-    /* ============= START FOOTER ============= */
+/* ============= START FOOTER ============= */
+.footer {
+    background: var(--footer-linear);
+    padding-top: calc(var(--padding-3) * 1.3);
+}
 
-    /* ============= END FOOTER ============= */
+.footer__container {
+    padding-bottom: calc(var(--padding-3) * 1.3);
+}
 
-    /* ============= SCROLL UP BUTTON ============= */
+.footer__title,
+.footer__subtitle,
+.footer__social-link {
+    color: var(--white-100);
+}
 
-    /* ============= DARK MODE ============= */
+.footer__copyRight {
+    padding-bottom: var(--padding-1);
+    text-align: center;
+    color: var(--white-100);
+}
+
+.footer__copyRight span {
+    color: var(--darkBlue-100);
+}
+
+
+/* ============= END FOOTER ============= */
+
+/* ============= SCROLL UP BUTTON ============= */
+
+/* ============= DARK MODE ============= */
