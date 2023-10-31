@@ -314,8 +314,8 @@ formInputs.forEach(input => {
     });
     input.addEventListener("blur", () => {
         let targetLabel = document.querySelector(`.form__label[for=${input.id}]`);
-        if(input.value.length === 0)
-        targetLabel.classList.remove("focus");
+        if (input.value.length === 0)
+            targetLabel.classList.remove("focus");
     });
 });
 
@@ -334,7 +334,29 @@ formInputs.forEach(input => {
 /* ============== Dark / Light Theme ============== */
 
 /* ============== Send Email By EmailJS ============== */
+const serviceID = "service_t8b2h45";
+const templateID = "template_aa4hy22";
+const templateParams = contactForm;
+const publicKey = "83VPhLv_IQqpQzH-0";
 
+function sendEmail(e) {
+    e.preventDefault();
+    emailjs.sendForm(serviceID, templateID, templateParams, publicKey).then(response => {
+        console.log(response.status, response.text);
+        statusBox.textContent = "Az üzenetet sikeresen elküldtük! ✅"
+        setTimeout( () => {
+            statusBox.textContent = ""
+        }, 7000);
+        contactForm.reset();
+    },
+        (error) => {
+            console.log(error);
+            statusBox.textContent = "Az üzenetet nem sikerült elküldeni! ❌"
+        }
+    );
+}
+
+contactForm.addEventListener("submit", sendEmail)
 /* ============== scrollRevealJS ============== */
 
 window.addEventListener("scroll", () => { });
