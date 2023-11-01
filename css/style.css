@@ -382,7 +382,8 @@ body {
     transition: color var(--default-duration) ease;
 }
 
-.header__link a:hover {
+.header__link a:hover,
+.header__link a.active {
     color: var(--accent-color);
 }
 

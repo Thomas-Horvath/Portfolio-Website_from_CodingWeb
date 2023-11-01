@@ -16,7 +16,7 @@ const header = document.querySelector(".header"),
 
 function changeHeaderBg() {
     const scrollY = window.scrollY;
-    header.style.transition ="all var(--default-duration) ease";
+    header.style.transition = "all var(--default-duration) ease";
     if (scrollY > 50) {
         header.style.background = "var(--body-bg)";
         header.style.height = "calc(var(--header-height) - 15px)";
@@ -27,18 +27,18 @@ function changeHeaderBg() {
         header.style.height = "var(--header-height)";
         header.style.boxShadow = "";
     }
- } 
+}
 let lastScrollY;
- function hideMobNavbar() {
+function hideMobNavbar() {
     const scrollY = window.scrollY;
-    if(scrollY > lastScrollY) {
+    if (scrollY > lastScrollY) {
         mobileLinksContainer.classList.add("hide");
     }
-    else if ( scrollY< lastScrollY) {
+    else if (scrollY < lastScrollY) {
         mobileLinksContainer.classList.remove("hide");
     }
     lastScrollY = scrollY;
- }
+}
 
 
 
@@ -356,17 +356,47 @@ formInputs.forEach(input => {
 
 
 /* ============== Active Scroll ============== */
+function activeScroll() {
+    const scrollY = window.scrollY;
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 16,
+            sectionHeight = section.offsetHeight,
+            link = document.querySelector(`.header__link a[href= '#${section.id}']`);
+        if (scrollY >= sectionTop && scrollY <= sectionHeight + sectionTop) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    mobileLinks.forEach(link => {
+        let hashLink = /#([^#]*)/g.exec(link.href)[1];
+        const section = document.querySelector(`section[id= '${hashLink}']`),
+            sectionTop = section.offsetTop - 16,
+            sectionHeight = section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY <= sectionHeight + sectionTop) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    })
+}
+
+
+
+
+
+
 
 /* ============== ScrollUp Button ============== */
 function showScrollUpBtn() {
-    if( window.scrollY > 300) {
+    if (window.scrollY > 300) {
         scrollUpBtn.classList.add("show");
     } else {
         scrollUpBtn.classList.remove("show");
     }
 }
 
-scrollUpBtn.addEventListener("click", () => window.scrollTo({ behavior: "smooth", top: 0, left:0 }))
+scrollUpBtn.addEventListener("click", () => window.scrollTo({ behavior: "smooth", top: 0, left: 0 }))
 
 
 
@@ -384,7 +414,7 @@ function sendEmail(e) {
     emailjs.sendForm(serviceID, templateID, templateParams, publicKey).then(response => {
         console.log(response.status, response.text);
         statusBox.textContent = "Az üzenetet sikeresen elküldtük! ✅"
-        setTimeout( () => {
+        setTimeout(() => {
             statusBox.textContent = ""
         }, 7000);
         contactForm.reset();
@@ -403,10 +433,12 @@ window.addEventListener("scroll", () => {
     changeHeaderBg();
     hideMobNavbar();
     showScrollUpBtn();
- });
+    activeScroll();
+});
 
 window.addEventListener("load", () => {
     renderSkills();
     renderEducations();
+    activeScroll();
 
 });
