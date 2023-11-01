@@ -238,6 +238,8 @@ li {
     font-size: calc(var(--font-size-1) *1.1);
     color: var(--text-dark);
     padding-inline: 5px;
+    background-color: var(--body-bg);
+    transition: background var(--default-duration) ease;
 }
 
 /* =============  TYPOGRAPHY =============*/
@@ -1228,6 +1230,7 @@ svg#scroll-down circle {
     padding-inline: 5px;
     text-transform: capitalize;
     transition: all var(--default-duration) ease;
+    color: var(--text-dark);
 }
 
 .form__label.focus {
@@ -1237,6 +1240,7 @@ svg#scroll-down circle {
 
 .form__input {
     width: 100%;
+
 }
 
 textarea.form__input {
@@ -1325,3 +1329,8 @@ textarea.form__input {
 
 
 /* ============= DARK MODE ============= */
+[data-theme="dark"] {
+    --body-bg: var(--darkBlue-100);
+    --text-dark: var(--white-100);
+    --text-alt-1: var(--gray-80);
+}

@@ -42,6 +42,10 @@ function hideMobNavbar() {
 
 
 
+
+
+
+
 /* ============== Skills Section ============== */
 // Skills & Tools
 let skills = [
@@ -303,13 +307,6 @@ services.forEach(service => {
 
 
 
-
-
-
-
-
-
-
 /* ============== Testimonials Section ============== */
 const testimonialsSwiper = new Swiper(".testimonials__slider", {
     slidesPerView: 1,
@@ -401,7 +398,29 @@ scrollUpBtn.addEventListener("click", () => window.scrollTo({ behavior: "smooth"
 
 
 
+
+
 /* ============== Dark / Light Theme ============== */
+colorThemeBtn.addEventListener("click", () => {
+    theme.toggleTheme();
+});
+
+function changeThemeBtnIcon() {
+    if(theme.currentTheme === "dark") {
+        colorThemeBtn.querySelector("i").classList.replace("ri-moon-fill", "ri-sun-fill" );
+    } else if (theme.currentTheme === "light") {
+        colorThemeBtn.querySelector("i").classList.replace("ri-sun-fill", "ri-moon-fill" );
+    }
+
+}
+theme.onLoad(changeThemeBtnIcon);
+theme.onToggle(changeThemeBtnIcon);
+
+
+
+
+
+
 
 /* ============== Send Email By EmailJS ============== */
 const serviceID = "service_t8b2h45";
@@ -427,6 +446,17 @@ function sendEmail(e) {
 }
 
 contactForm.addEventListener("submit", sendEmail)
+
+
+
+
+
+
+
+
+
+
+
 /* ============== scrollRevealJS ============== */
 
 window.addEventListener("scroll", () => {
