@@ -28,8 +28,17 @@ function changeHeaderBg() {
         header.style.boxShadow = "";
     }
  } 
-
-
+let lastScrollY;
+ function hideMobNavbar() {
+    const scrollY = window.scrollY;
+    if(scrollY > lastScrollY) {
+        mobileLinksContainer.classList.add("hide");
+    }
+    else if ( scrollY< lastScrollY) {
+        mobileLinksContainer.classList.remove("hide");
+    }
+    lastScrollY = scrollY;
+ }
 
 
 
@@ -380,6 +389,7 @@ contactForm.addEventListener("submit", sendEmail)
 
 window.addEventListener("scroll", () => {
     changeHeaderBg();
+    hideMobNavbar();
  });
 
 window.addEventListener("load", () => {
