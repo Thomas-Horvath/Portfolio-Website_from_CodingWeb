@@ -459,7 +459,7 @@ body {
     }
 
     .header__link-mobile a.active {
-        color: var(--accent-color);
+        color: var(--accent-color); 
     }
 
     .header__link-mobile a.active p {
