@@ -229,7 +229,8 @@ function renderEducations() {
             expContainer.innerHTML += timelineComponent(edu);
         }
 
-    })
+    });
+    sr.reveal("timeline__item", {interval: 50 , distance: "40px"});
 }
 
 /* ============== Services Section ============== */
@@ -458,6 +459,23 @@ contactForm.addEventListener("submit", sendEmail)
 
 
 /* ============== scrollRevealJS ============== */
+const sr = ScrollReveal({ origin: "top" , distance: "100px" , duration: 2000 , delay: 300});
+sr.reveal(".home__left-side", {origin: "left"});
+sr.reveal(".home__right-side", {origin: "right"});
+sr.reveal(".section__title" , {origin: "top" , distance:  "20px"});
+sr.reveal(".about__left-side", {origin: "left"})
+sr.reveal(".about__right-side", {origin: "right"})
+sr.reveal(".skills__subtitle", {origin: "left"})
+sr.reveal(".skills__itmes", {distance: "40px"})
+sr.reveal(".timeline__title", {distance: "20px"})
+sr.reveal(".timeline__items", {distance: "5px"})
+sr.reveal(".project", {interval: 50})
+sr.reveal(".service", {interval: 50})
+sr.reveal(".cta__content")
+sr.reveal(".tetimonials__content")
+sr.reveal(".contact__info-item", {interval: 50, origin: "left"})
+sr.reveal(".form", {origin: "right"})
+
 
 window.addEventListener("scroll", () => {
     changeHeaderBg();
