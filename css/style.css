@@ -404,6 +404,7 @@ body {
 .language {
     width: 30px;
     margin: 0 var(--margin-1);
+    transition: var(--default-duration) ease;
 }
 
 .language:hover {
