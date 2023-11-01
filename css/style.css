@@ -399,12 +399,12 @@ body {
 }
 
 .language {
- width: 30px;
+    width: 30px;
     margin: 0 var(--margin-1);
 }
 
 .language:hover {
-   transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 /* navbar for small screens */
@@ -459,7 +459,7 @@ body {
     }
 
     .header__link-mobile a.active {
-        color: var(--accent-color); 
+        color: var(--accent-color);
     }
 
     .header__link-mobile a.active p {
@@ -467,6 +467,7 @@ body {
         opacity: 1;
         pointer-events: all;
     }
+
     .header__links-mobile.hide {
         opacity: 0;
         z-index: -1;
@@ -1293,5 +1294,33 @@ textarea.form__input {
 /* ============= END FOOTER ============= */
 
 /* ============= SCROLL UP BUTTON ============= */
+.scroll-up {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    width: var(--control-height);
+    font-size: var(--font-size-1-5);
+    box-shadow: 0 3px 5px var(--black-100-alpha-20);
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+    transition: all var(--default-duration) ease;
+}
+
+@media screen and (min-width: 768px) {
+    .scroll-up.show {
+        bottom: 15px;
+        opacity: 1;
+        z-index: 100;
+        pointer-events: all;
+    }
+}
+
+
+
+
+
+
+
 
 /* ============= DARK MODE ============= */

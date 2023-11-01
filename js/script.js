@@ -358,6 +358,18 @@ formInputs.forEach(input => {
 /* ============== Active Scroll ============== */
 
 /* ============== ScrollUp Button ============== */
+function showScrollUpBtn() {
+    if( window.scrollY > 300) {
+        scrollUpBtn.classList.add("show");
+    } else {
+        scrollUpBtn.classList.remove("show");
+    }
+}
+
+scrollUpBtn.addEventListener("click", () => window.scrollTo({ behavior: "smooth", top: 0, left:0 }))
+
+
+
 
 /* ============== Dark / Light Theme ============== */
 
@@ -390,6 +402,7 @@ contactForm.addEventListener("submit", sendEmail)
 window.addEventListener("scroll", () => {
     changeHeaderBg();
     hideMobNavbar();
+    showScrollUpBtn();
  });
 
 window.addEventListener("load", () => {
